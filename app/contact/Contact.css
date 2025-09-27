@@ -1,136 +1,238 @@
+/* Contact.css - Alineado con el diseño glassmorphism de tu portafolio */
+
+/* Contenedor principal */
 .contact {
-  max-width: 700px;
-  margin: 2rem auto;
+  max-width: 600px;
+  margin: 4rem auto 2rem;
   padding: 2rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
-  text-align: center;
+  background: rgba(15, 23, 42, 0.8); /* --bg-primary con transparencia para glass */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(99, 102, 241, 0.3); /* Borde indigo sutil */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+  animation: fadeIn 0.6s ease-out;
 }
 
 .contact h1 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  border-bottom: 3px solid #007acc;
-  padding-bottom: 0.5rem;
-  color: #000;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .contact p {
+  text-align: center;
   font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  color: #333;
+  color: var(--text-primary);
+  opacity: 0.9;
+  margin-bottom: 2rem;
 }
 
+/* Formulario */
 .contact form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .contact input,
 .contact textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1.5px solid #ccc;
-  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  background: rgba(17, 24, 39, 0.7); /* Slate-800 transparente */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-primary);
   font-size: 1rem;
   font-family: inherit;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+  color: rgba(241, 245, 249, 0.6); /* --text-primary con opacidad */
 }
 
 .contact input:focus,
 .contact textarea:focus {
-  border-color: #007acc;
-  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  transform: translateY(-1px);
 }
 
 .contact textarea {
-  height: 150px;
+  min-height: 120px;
   resize: vertical;
 }
 
-.contact button {
-  background-color: #007acc;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center;
-  width: 150px;
+/* Estado de error */
+.input-error {
+  border-color: #ef4444 !important; /* Red-500 */
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
-.contact button:hover {
-  background-color: #005fa3;
-}
-.input-error {
-  border-color: #e74c3c;
+.input-error:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
 }
 
 .error {
-  color: #e74c3c;
+  color: #ef4444;
   font-size: 0.9rem;
-  margin-top: -0.5rem;
-  margin-bottom: 1rem;
-  text-align: left;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid #ef4444;
+  animation: slideUp 0.3s ease;
 }
 
+/* Botón */
+.contact button {
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.contact button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* Mensaje de éxito */
 .success-message {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #27ae60;
-  font-size: 1.3rem;
-  font-weight: 600;
   gap: 1rem;
-  animation: fadeInScale 0.8s ease forwards;
-  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(16, 185, 129, 0.1); /* Emerald-500 con baja opacidad */
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  color: var(--text-primary);
+  animation: fadeIn 0.5s ease, slideUp 0.5s ease;
 }
 
+.success-message p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #10b981; /* Emerald-500 */
+  text-align: center;
+}
+
+/* SVG Checkmark con animación (alineado con tus animaciones globales) */
 .checkmark {
-  width: 80px;
-  height: 80px;
-  stroke: #27ae60;
-  stroke-width: 4;
-  stroke-miterlimit: 10;
-  box-shadow: 0 0 10px #27ae60;
-  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  width: 52px;
+  height: 52px;
+  animation: drawCheck 0.6s ease-in-out;
 }
 
 .checkmark__circle {
+  stroke: #10b981; /* Emerald-500 */
+  stroke-width: 2;
   stroke-dasharray: 166;
   stroke-dashoffset: 166;
-  stroke-width: 4;
-  stroke-miterlimit: 10;
-  stroke: #27ae60;
-  fill: none;
-  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  stroke-linecap: round;
+  animation: drawCircle 0.6s ease-in-out;
+  transform-origin: 50% 50%;
 }
 
 .checkmark__check {
-  transform-origin: 50% 50%;
+  stroke: #10b981;
+  stroke-width: 4;
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
-  animation: stroke 0.3s 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  stroke-linecap: round;
+  animation: drawCheck 0.3s ease-in-out 0.3s both;
+  transform-origin: 50% 50%;
 }
 
-@keyframes stroke {
+@keyframes drawCircle {
+  from {
+    stroke-dashoffset: 166;
+  }
   to {
     stroke-dashoffset: 0;
   }
 }
 
-@keyframes fadeInScale {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
+@keyframes drawCheck {
+  from {
+    stroke-dashoffset: 48;
   }
-  100% {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .contact h1 {
+    font-size: 2rem;
+  }
+
+  .contact input,
+  .contact textarea {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .contact button {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .success-message {
+    padding: 1.5rem;
+  }
+}
+
+/* Asegura compatibilidad con tus animaciones globales (fadeIn, slideUp) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

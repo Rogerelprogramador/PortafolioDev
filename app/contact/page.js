@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+
 import "./Contact.css";
 
 export default function Contact() {
@@ -38,7 +39,6 @@ const handleSubmit = async (e) => {
     await fetch("https://script.google.com/macros/s/AKfycbyux6r3VlaMb9iKel4zDVlakalWUeFBlfvvopJZo5jrvgj3pEHkH56cDuqiHyVXw0FBGQ/exec", {
       method: "POST",
       body: new URLSearchParams(formData),
-      // AÑADE ESTA LÍNEA:
       mode: "no-cors", 
     });
 
