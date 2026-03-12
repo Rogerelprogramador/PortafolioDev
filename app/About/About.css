@@ -1,0 +1,44 @@
+.about {
+  padding: 6rem 0; /* Igual que otras secciones */
+  display: flex;
+  justify-content: center;
+}
+
+.about-content {
+  max-width: 700px;
+  padding: 2rem;
+  color: var(--text-primary);
+}
+
+.about-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--secondary);
+  padding-bottom: 0.5rem;
+  color: var(--primary);
+  font-weight: 700;
+  background: none;
+}
+
+.about-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.about-content p,
+.about-content ul {
+  color: var(--text-primary);
+}
+
+.about-content ul {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  padding-left: 1.2rem;
+}
+
+.about-content ul li {
+  margin-bottom: 0.5rem;
+}
